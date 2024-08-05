@@ -23,11 +23,11 @@ const MenuBarApp = () => {
   ]
 
   return (
-    <div className='p-1 bg-white rounded-lg shadow-sm flex justify-between gap-3'>
+    <div className='p-2 bg-white rounded-lg shadow-sm flex justify-between gap-3'>
       {options.map((option) => (
         <button
           key={option.id}
-          className={`rounded-lg min-w-[60px] font-medium ${
+          className={`rounded-lg min-w-[40px] font-medium px-2 ${
             option.selected ? 'bg-black text-white' : ''
           }`}
         >

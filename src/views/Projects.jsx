@@ -1,5 +1,5 @@
 import MenuBarApp from '@/components/custom/MenuBarApp'
-import TableApp from '@/components/custom/TableApp'
+import PaginationApp from '@/components/custom/PaginationApp'
 import { Button } from '@/components/ui/button'
 import Page from '@/projects/page'
 import { FaPlus } from 'react-icons/fa6'
@@ -17,13 +17,15 @@ const Projects = () => {
 
       <div className='flex w-full justify-between'>
         <MenuBarApp />
-        <Button className='flex gap-2 bg-green-600'>
+        <Button className='flex gap-2 bg-green-600 hover:opacity-70 hover:bg-green-600'>
           <p className='h-full'>New project</p>
           <FaPlus className='size-4' />
         </Button>
       </div>
-
-      <Page />
+      <div className='flex flex-col w-full'>
+        <Page />
+        <PaginationApp />
+      </div>
     </div>
   )
 }

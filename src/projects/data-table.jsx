@@ -36,7 +36,7 @@ export function DataTable({ columns, data }) {
             <TableRow key={headerGroup.id}>
               {headerGroup.headers.map((header) => {
                 return (
-                  <TableHead key={header.id}>
+                  <TableHead key={header.id} className='text-center'>
                     {header.isPlaceholder
                       ? null
                       : flexRender(
@@ -53,6 +53,7 @@ export function DataTable({ columns, data }) {
           {table.getRowModel().rows?.length ? (
             table.getRowModel().rows.map((row) => (
               <TableRow
+                className='text-center'
                 key={row.id}
                 data-state={row.getIsSelected() && 'selected'}
               >

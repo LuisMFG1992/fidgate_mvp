@@ -4,7 +4,7 @@ import { DataTable } from './data-table'
 
 async function getData() {
   const res = await fetch(
-    'https://run.mocky.io/v3/6e7415fa-9696-4800-b800-437222356c5b'
+    'https://run.mocky.io/v3/7264ef8c-21ba-4138-9c97-8610c4ee65d9'
   )
   const data = await res.json()
   return data
@@ -22,6 +22,7 @@ const getFilteredData = (data = [], filter = 'All', searchValue = '') => {
 
 export default function Page({ filter, searchValue }) {
   const [originalData, setOriginalData] = useState([])
+
   const [filteredData, setFilteredData] = useState([])
 
   useEffect(() => {
@@ -40,7 +41,11 @@ export default function Page({ filter, searchValue }) {
 
   return (
     <div className='w-full bg-white rounded-lg'>
-      <DataTable columns={columns} data={filteredData} />
+      <DataTable
+        columns={columns}
+        data={filteredData}
+        originalData={originalData}
+      />
     </div>
   )
 }

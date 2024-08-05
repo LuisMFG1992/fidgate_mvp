@@ -18,6 +18,7 @@ module.exports = {
     },
     extend: {
       colors: {
+        bodyTextColor: '#64748B',
         primaryColor: '#05445E',
         bgLight: '#F4F4F4',
         border: 'hsl(var(--border))',

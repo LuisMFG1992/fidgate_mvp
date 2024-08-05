@@ -1,5 +1,5 @@
 const ProjectsIcon = (props) => (
-  <div className='bg-sidebarSelected p-2 rounded-lg'>
+  <div className='p-2'>
     <svg
       xmlns='http://www.w3.org/2000/svg'
       width={26}

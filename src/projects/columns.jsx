@@ -1,21 +1,5 @@
-import { Button } from '@/components/ui/button'
-import { FaRegTrashAlt } from 'react-icons/fa'
-import { LuFolderOpen } from 'react-icons/lu'
-import { FiEdit3 } from 'react-icons/fi'
-import { BiImage } from 'react-icons/bi'
-import { AiOutlineTeam } from 'react-icons/ai'
-
 import LogoInvertedColors from '../assets/LogoInvertedColors.png'
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu'
-import { MoreHorizontal } from 'lucide-react'
-import TableActionDelete from '@/components/custom/TableActionDelete'
 import TableActions from '@/components/custom/TableActions'
 
 export const columns = [

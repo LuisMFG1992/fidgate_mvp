@@ -1,9 +1,13 @@
+import { useContext } from 'react'
 import { Button } from '../ui/button'
 import CardApp from './CardApp'
 import Modal from './Modal'
 import { PiWarningBold } from 'react-icons/pi'
+import { ThemeContext } from '@/context/globalContext'
 
 const DeleteModal = () => {
+  const { setShowModal } = useContext(ThemeContext)
+
   return (
     <Modal>
       <CardApp>
@@ -22,7 +26,11 @@ const DeleteModal = () => {
             <Button className='bg-red-600 hover:bg-red-900'>
               Delete project
             </Button>
-            <Button className='bg-gray-200 hover:bg-gray-300 text-black'>
+
+            <Button
+              className='bg-gray-200 hover:bg-gray-300 text-black'
+              onClick={() => setShowModal(false)}
+            >
               Cancel
             </Button>
           </div>

@@ -11,7 +11,7 @@ const Projects = () => {
   const [filter, setFilter] = useState('All')
   const [searchValue, setSearchValue] = useState('')
 
-  const { showModal, setShowModal } = useContext(ThemeContext)
+  const { showModal } = useContext(ThemeContext)
 
   const handelFilter = (id) => {
     setFilter(id)
@@ -38,11 +38,7 @@ const Projects = () => {
         </Button>
       </div>
       <div className='flex flex-col w-full'>
-        <Page
-          filter={filter}
-          searchValue={searchValue}
-          setShowModal={setShowModal}
-        />
+        <Page filter={filter} searchValue={searchValue} />
       </div>
     </div>
   )

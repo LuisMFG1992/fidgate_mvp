@@ -22,7 +22,7 @@ const Projects = () => {
       </div>
 
       <div className='flex w-full justify-between'>
-        <MenuBarApp callback={handelFilter} />
+        <MenuBarApp filter={filter} callback={handelFilter} />
         <Button className='flex gap-2 bg-green-600 hover:opacity-70 hover:bg-green-600'>
           <p className='h-full'>New project</p>
           <FaPlus className='size-4' />

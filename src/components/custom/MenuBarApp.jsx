@@ -1,4 +1,4 @@
-const MenuBarApp = ({ callback }) => {
+const MenuBarApp = ({ filter, callback }) => {
   const options = [
     {
       id: 'all',
@@ -22,13 +22,15 @@ const MenuBarApp = ({ callback }) => {
     }
   ]
 
+  console.log({ filter })
+
   return (
-    <div className='p-1 bg-white rounded-lg shadow-sm flex justify-between gap-3'>
+    <div className='p-2 bg-white rounded-lg shadow-sm flex justify-between gap-3'>
       {options.map((option) => (
         <button
           key={option.id}
-          className={`rounded-lg min-w-[40px] font-medium px-2 ${
-            option.selected ? 'bg-black text-white' : ''
+          className={`rounded-lg min-w-[40px] p-1 font-medium px-2 ${
+            filter == option.label ? 'bg-black text-white' : ''
           }`}
           onClick={() => callback(option.label)}
         >

@@ -1,27 +1,30 @@
 import { NavLink } from 'react-router-dom'
 import LogoSmall from '../../assets/LogoSmall.svg'
-import { FinancialIcon, ProductsIcon, ProjectsIcon, TeamsIcon } from '../icons'
+import { RxDashboard } from 'react-icons/rx'
+import { RiTeamLine } from 'react-icons/ri'
+import { RiBankLine } from 'react-icons/ri'
+import { BsBoxes } from 'react-icons/bs'
 
 const sidebarLinks = [
   {
     id: 'projects',
     to: '/projects',
-    icon: <ProjectsIcon />
+    icon: <RxDashboard size={42} className='p-2' />
   },
   {
     id: 'teams',
     to: '/teams',
-    icon: <TeamsIcon />
+    icon: <RiTeamLine size={42} className='p-2' />
   },
   {
     id: 'financial',
     to: '/financial',
-    icon: <FinancialIcon />
+    icon: <RiBankLine size={42} className='p-2' />
   },
   {
     id: 'products',
     to: '/products',
-    icon: <ProductsIcon />
+    icon: <BsBoxes size={42} className='p-2' />
   }
 ]
 

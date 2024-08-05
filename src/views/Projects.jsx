@@ -1,8 +1,12 @@
+import CardApp from '@/components/custom/CardApp'
+import DeleteModal from '@/components/custom/DeleteModal'
 import MenuBarApp from '@/components/custom/MenuBarApp'
+import Modal from '@/components/custom/Modal'
 import SearchInput from '@/components/custom/SearchInput'
 import { Button } from '@/components/ui/button'
+import { ThemeContext } from '@/context/globalContext'
 import Page from '@/projects/page'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import { FaPlus } from 'react-icons/fa6'
 
 const Projects = () => {
@@ -13,10 +17,14 @@ const Projects = () => {
     setFilter(id)
   }
 
+  const { showModal } = useContext(ThemeContext)
+
   return (
     <div className='h-screen flex flex-col items-center p-4 gap-4'>
+      {showModal && <DeleteModal />}
       <div className='flex flex-col justify-center items-center gap-2'>
         <h2 className='text-4xl font-bold'>Welcome to FIDgate!</h2>
+        <p className='text-bodyTextColor'>We are glad to have you here.</p>
         <p className='text-bodyTextColor'>
           Choose a project from the list below to start working on it. To create
           a new project, click the {"'New Project'"} button on the right

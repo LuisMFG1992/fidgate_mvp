@@ -28,7 +28,7 @@ import {
 export function DataTable({ columns, data }) {
   const [pagination, setPagination] = useState({
     pageIndex: 0,
-    pageSize: 7
+    pageSize: 6
   })
 
   const table = useReactTable({
@@ -45,7 +45,7 @@ export function DataTable({ columns, data }) {
   const pageCount = table.getPageCount()
 
   return (
-    <div className='rounded-md border min-h-[720px] flex flex-col justify-between'>
+    <div className='rounded-md border min-h-[695px] flex flex-col justify-between'>
       <div className='p-4 flex flex-col gap-2'>
         <p className='text-2xl font-bold'>Projects of Juan Roldan</p>
         <p className='text-bodyTextColor'>
@@ -124,7 +124,7 @@ export function DataTable({ columns, data }) {
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
-                  className='h-[510px] text-center text-4xl font-semibold text-gray-400'
+                  className='h-[480px] text-center text-4xl font-semibold text-gray-400'
                 >
                   No results found
                 </TableCell>

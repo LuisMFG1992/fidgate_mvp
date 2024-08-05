@@ -78,7 +78,7 @@ export const columns = [
   {
     accessorKey: 'modifiedDate',
     header: 'Modified Date',
-    size: 150, // Ancho de la columna en píxeles
+    size: 150,
     cell: ({ row }) => {
       const date = new Date(row.getValue('modifiedDate'))
       const formatted = date.toLocaleDateString()
@@ -88,7 +88,7 @@ export const columns = [
   {
     id: 'actions',
     header: 'Actions',
-    size: 100, // Ancho de la columna en píxeles
+    size: 100,
     cell: () => {
       return (
         <DropdownMenu>

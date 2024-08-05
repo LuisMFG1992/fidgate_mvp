@@ -1,28 +1,26 @@
 const MenuBarApp = ({ filter, callback }) => {
   const options = [
     {
-      id: 'all',
+      id: '1',
       label: 'All',
       selected: true
     },
     {
-      id: 'completed',
+      id: '2',
       label: 'Completed',
       selected: ''
     },
     {
-      id: 'inProgress',
+      id: '3',
       label: 'In progress',
       selected: ''
     },
     {
-      id: 'draft',
+      id: '4',
       label: 'Draft',
       selected: ''
     }
   ]
-
-  console.log({ filter })
 
   return (
     <div className='p-2 bg-white rounded-lg shadow-sm flex justify-between gap-3'>

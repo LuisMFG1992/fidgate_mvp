@@ -17,7 +17,6 @@ export default function Login() {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    console.log(formData)
     setFormData({
       email: '',
       password: ''

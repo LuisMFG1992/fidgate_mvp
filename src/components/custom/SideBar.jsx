@@ -42,14 +42,16 @@ const sidebarLinks = [
 const SideBar = () => {
   return (
     <div className='h-full bg-white shadow-md w-[60px] py-4 px-2 flex flex-col gap-6'>
-      <img src={LogoSmall} alt='logo' className='size-16 w-full' />
+      <img src={LogoSmall} alt='logo' className='size-16' />
       <div className='flex flex-col items-center gap-8 py-4 px-2'>
         {sidebarLinks.map((link) => (
           <NavLink
             key={link.id}
             to={link.to}
             className={({ isActive }) =>
-              isActive ? 'bg-sidebarSelected rounded-md' : ''
+              isActive
+                ? 'bg-sidebarSelected rounded-md flex justify-center items-center'
+                : 'flex justify-center items-center'
             }
           >
             <TooltipProvider delayDuration={100}>

@@ -20,7 +20,7 @@ const getFilteredData = (data = [], filter = 'All', searchValue = '') => {
   })
 }
 
-export default function Page({ filter, searchValue }) {
+export default function Page({ filter, searchValue, setShowModal }) {
   const [originalData, setOriginalData] = useState([])
   const [filteredData, setFilteredData] = useState([])
 

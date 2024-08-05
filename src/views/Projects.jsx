@@ -1,23 +1,21 @@
-import CardApp from '@/components/custom/CardApp'
-import DeleteModal from '@/components/custom/DeleteModal'
-import MenuBarApp from '@/components/custom/MenuBarApp'
-import Modal from '@/components/custom/Modal'
-import SearchInput from '@/components/custom/SearchInput'
-import { Button } from '@/components/ui/button'
+import { useContext, useState } from 'react'
 import { ThemeContext } from '@/context/globalContext'
 import Page from '@/projects/page'
-import { useContext, useState } from 'react'
+import DeleteModal from '@/components/custom/DeleteModal'
+import MenuBarApp from '@/components/custom/MenuBarApp'
+import SearchInput from '@/components/custom/SearchInput'
+import { Button } from '@/components/ui/button'
 import { FaPlus } from 'react-icons/fa6'
 
 const Projects = () => {
   const [filter, setFilter] = useState('All')
   const [searchValue, setSearchValue] = useState('')
 
+  const { showModal, setShowModal } = useContext(ThemeContext)
+
   const handelFilter = (id) => {
     setFilter(id)
   }
-
-  const { showModal } = useContext(ThemeContext)
 
   return (
     <div className='h-screen flex flex-col items-center p-4 gap-4'>
@@ -40,7 +38,11 @@ const Projects = () => {
         </Button>
       </div>
       <div className='flex flex-col w-full'>
-        <Page filter={filter} searchValue={searchValue} />
+        <Page
+          filter={filter}
+          searchValue={searchValue}
+          setShowModal={setShowModal}
+        />
       </div>
     </div>
   )

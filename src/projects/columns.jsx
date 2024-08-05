@@ -15,6 +15,8 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
 import { MoreHorizontal } from 'lucide-react'
+import TableActionDelete from '@/components/custom/TableActionDelete'
+import TableActions from '@/components/custom/TableActions'
 
 export const columns = [
   {
@@ -90,39 +92,7 @@ export const columns = [
     header: 'Actions',
     size: 100,
     cell: () => {
-      return (
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant='ghost' className='h-8 w-8 p-0'>
-              <span className='sr-only'>Open menu</span>
-              <MoreHorizontal className='h-4 w-4' />
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align='end'>
-            <DropdownMenuItem className='flex gap-2'>
-              <LuFolderOpen className='size-4 ' />
-              <span className=''>Open</span>
-            </DropdownMenuItem>
-            <DropdownMenuItem className='flex gap-2 '>
-              <FiEdit3 className='size-4 text-disable' />
-              <span className='text-disable'>Rename</span>
-            </DropdownMenuItem>
-            <DropdownMenuItem className='flex gap-2'>
-              <BiImage className='size-4 text-disable' />
-              <span className='text-disable'>Change picture</span>
-            </DropdownMenuItem>
-            <DropdownMenuItem className='flex gap-2'>
-              <AiOutlineTeam className='size-4 text-disable' />
-              <span className='text-disable'>Collaborate</span>
-            </DropdownMenuItem>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem className='flex gap-2'>
-              <FaRegTrashAlt className='size-4 text-red-600' />
-              <span className='text-red-600'>Delete</span>
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
-      )
+      return <TableActions />
     }
   }
 ]

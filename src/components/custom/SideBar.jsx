@@ -5,24 +5,35 @@ import { RiTeamLine } from 'react-icons/ri'
 import { RiBankLine } from 'react-icons/ri'
 import { BsBoxes } from 'react-icons/bs'
 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger
+} from '@/components/ui/tooltip'
+
 const sidebarLinks = [
   {
     id: 'projects',
+    label: 'Projects',
     to: '/projects',
     icon: <RxDashboard size={42} className='p-2' />
   },
   {
     id: 'teams',
+    label: 'Users & teams',
     to: '/teams',
     icon: <RiTeamLine size={42} className='p-2' />
   },
   {
     id: 'financial',
+    label: 'Financial Database',
     to: '/financial',
     icon: <RiBankLine size={42} className='p-2' />
   },
   {
     id: 'products',
+    label: 'Product Database',
     to: '/products',
     icon: <BsBoxes size={42} className='p-2' />
   }
@@ -41,7 +52,14 @@ const SideBar = () => {
               isActive ? 'bg-sidebarSelected rounded-md' : ''
             }
           >
-            {link.icon}
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>{link.icon}</TooltipTrigger>
+                <TooltipContent>
+                  <p>{link.label}</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           </NavLink>
         ))}
       </div>

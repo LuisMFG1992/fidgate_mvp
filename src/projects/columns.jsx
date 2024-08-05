@@ -5,6 +5,8 @@ import { FiEdit3 } from 'react-icons/fi'
 import { BiImage } from 'react-icons/bi'
 import { AiOutlineTeam } from 'react-icons/ai'
 
+import LogoInvertedColors from '../assets/LogoInvertedColors.png'
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -19,10 +21,15 @@ export const columns = [
     accessorKey: 'image',
     header: 'Image',
     size: 80,
-    cell: () => {
+    cell: ({ row }) => {
+      const value = row.getValue('image')
+      const placeholder = LogoInvertedColors
       return (
         <div className='w-full h-full flex justify-center items-center'>
-          <div className='size-10 bg-gray-400 rounded-lg'></div>
+          <img
+            src={value ? value : placeholder}
+            className='size-10 bg-gray-400 rounded-lg'
+          ></img>
         </div>
       )
     }
@@ -45,21 +52,21 @@ export const columns = [
       const options = {
         Completed: (
           <div className='flex justify-center items-center'>
-            <div className='bg-green-600 py-1 px-2 min-w-24 rounded-lg text-white'>
+            <div className='bg-green-700 py-1 px-2 min-w-24 rounded-lg text-white font-semibold'>
               Completed
             </div>
           </div>
         ),
         'In progress': (
           <div className='flex justify-center items-center'>
-            <div className='bg-blue-600 py-1 px-2 min-w-24 rounded-lg text-white'>
+            <div className='bg-blue-800 py-1 px-2 min-w-24 rounded-lg text-white font-semibold'>
               In progress
             </div>
           </div>
         ),
         Draft: (
           <div className='flex justify-center items-center'>
-            <div className='bg-gray-600 py-1 px-2 min-w-24 rounded-lg text-white'>
+            <div className='bg-gray-500 py-1 px-2 min-w-24 rounded-lg text-white font-semibold'>
               Draft
             </div>
           </div>

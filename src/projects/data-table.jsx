@@ -124,9 +124,9 @@ export function DataTable({ columns, data }) {
               <TableRow>
                 <TableCell
                   colSpan={columns.length}
-                  className='h-24 text-center'
+                  className='h-[510px] text-center text-4xl font-semibold text-gray-400'
                 >
-                  No results.
+                  No results found
                 </TableCell>
               </TableRow>
             )}

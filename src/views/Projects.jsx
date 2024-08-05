@@ -7,13 +7,14 @@ import { FaPlus } from 'react-icons/fa6'
 
 const Projects = () => {
   const [filter, setFilter] = useState('All')
+  const [searchValue, setSearchValue] = useState('')
 
   const handelFilter = (id) => {
     setFilter(id)
   }
 
   return (
-    <div className='h-screen flex flex-col items-center p-4 gap-6'>
+    <div className='h-screen flex flex-col items-center p-4 gap-4'>
       <div className='flex flex-col justify-center items-center gap-2'>
         <h2 className='text-4xl font-bold'>Welcome to FIDgate!</h2>
         <p className='text-bodyTextColor'>
@@ -22,16 +23,16 @@ const Projects = () => {
         </p>
       </div>
 
-      <div className='flex w-full justify-between'>
+      <div className='flex w-full justify-between items-center'>
         <MenuBarApp filter={filter} callback={handelFilter} />
-        <SearchInput />
-        <Button className='flex gap-2 bg-green-600 hover:opacity-70 hover:bg-green-600'>
+        <SearchInput setSearchValue={setSearchValue} />
+        <Button className='flex gap-2 bg-black hover:opacity-70 hover:bg-black'>
           <p className='h-full'>New project</p>
           <FaPlus className='size-4' />
         </Button>
       </div>
       <div className='flex flex-col w-full'>
-        <Page filter={filter} />
+        <Page filter={filter} searchValue={searchValue} />
       </div>
     </div>
   )

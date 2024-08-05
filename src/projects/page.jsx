@@ -4,18 +4,23 @@ import { DataTable } from './data-table'
 
 async function getData() {
   const res = await fetch(
-    'https://run.mocky.io/v3/61fedc51-ad61-474c-a3a8-98cdb7c9a58f'
+    'https://run.mocky.io/v3/6e7415fa-9696-4800-b800-437222356c5b'
   )
   const data = await res.json()
   return data
 }
 
-const getFilteredData = (data = [], filter = 'All') => {
-  if (filter === 'All') return data
-  return data.filter((element) => element.status === filter)
+const getFilteredData = (data = [], filter = 'All', searchValue = '') => {
+  return data.filter((element) => {
+    const matchesStatus = filter === 'All' || element.status === filter
+    const matchesSearch =
+      searchValue === '' ||
+      element.name.toLowerCase().includes(searchValue.toLowerCase())
+    return matchesStatus && matchesSearch
+  })
 }
 
-export default function Page({ filter }) {
+export default function Page({ filter, searchValue }) {
   const [originalData, setOriginalData] = useState([])
   const [filteredData, setFilteredData] = useState([])
 
@@ -23,15 +28,15 @@ export default function Page({ filter }) {
     async function fetchData() {
       const result = await getData()
       setOriginalData(result)
-      setFilteredData(getFilteredData(result, filter))
+      setFilteredData(getFilteredData(result, filter, searchValue))
     }
 
     fetchData()
   }, [])
 
   useEffect(() => {
-    setFilteredData(getFilteredData(originalData, filter))
-  }, [filter, originalData])
+    setFilteredData(getFilteredData(originalData, filter, searchValue))
+  }, [filter, searchValue, originalData])
 
   return (
     <div className='w-full bg-white rounded-lg'>

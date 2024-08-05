@@ -52,21 +52,69 @@ async function getData() {
       modifiedDate: '2024-08-04T21:58:51.452Z',
       status: 'Completed',
       name: 'M-DK-FT3P.PFT_loan_tenor_10FT_loan_tenor_10'
+    },
+    {
+      id: '7',
+      image: '',
+      modifiedDate: '2024-08-04T21:58:51.452Z',
+      status: 'Completed',
+      name: 'M-DK-FT3P.PFT_loan_tenor_10FT_loan_tenor_10'
+    },
+    {
+      id: '8',
+      image: '',
+      modifiedDate: '2024-08-04T21:58:51.452Z',
+      status: 'Completed',
+      name: 'M-DK-FT3P.PFT_loan_tenor_10FT_loan_tenor_10'
+    },
+    {
+      id: '9',
+      image: '',
+      modifiedDate: '2024-08-04T21:58:51.452Z',
+      status: 'Completed',
+      name: 'M-DK-FT3P.PFT_loan_tenor_10FT_loan_tenor_10'
+    },
+    {
+      id: '10',
+      image: '',
+      modifiedDate: '2024-08-04T21:58:51.452Z',
+      status: 'Completed',
+      name: 'M-DK-FT3P.PFT_loan_tenor_10FT_loan_tenor_10'
+    },
+    {
+      id: '11',
+      image: '',
+      modifiedDate: '2024-08-04T21:58:51.452Z',
+      status: 'Completed',
+      name: 'M-DK-FT3P.PFT_loan_tenor_10FT_loan_tenor_10'
+    },
+    {
+      id: '12',
+      image: '',
+      modifiedDate: '2024-08-04T21:58:51.452Z',
+      status: 'In progress',
+      name: 'M-DK-FT3P.PFT_loan_tenor_10FT_loan_tenor_10'
     }
   ]
 }
 
-export default function DemoPage() {
+const filteredData = (data = [], filter = 'All') => {
+  if (filter == 'All') return data
+  const filtered = data.filter((element) => element.status == filter)
+  return filtered
+}
+
+export default function Page({ filter }) {
   const [data, setData] = useState([])
 
   useEffect(() => {
     async function fetchData() {
       const result = await getData()
-      setData(result)
+      setData(filteredData(result, filter))
     }
 
     fetchData()
-  }, [])
+  }, [filter])
 
   return (
     <div className='w-full bg-white rounded-lg'>

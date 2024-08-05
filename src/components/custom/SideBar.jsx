@@ -52,7 +52,7 @@ const SideBar = () => {
               isActive ? 'bg-sidebarSelected rounded-md' : ''
             }
           >
-            <TooltipProvider>
+            <TooltipProvider delayDuration={100}>
               <Tooltip>
                 <TooltipTrigger>{link.icon}</TooltipTrigger>
                 <TooltipContent>

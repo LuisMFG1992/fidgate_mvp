@@ -32,24 +32,27 @@ const TableActions = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end'>
-        <DropdownMenuItem className='flex gap-2'>
-          <LuFolderOpen className='size-4 ' />
-          <span className=''>Open</span>
+        <DropdownMenuItem className='flex gap-2 cursor-pointer hover:bg-gray-100'>
+          <LuFolderOpen className='size-4' />
+          <span>Open</span>
         </DropdownMenuItem>
-        <DropdownMenuItem className='flex gap-2 '>
+        <DropdownMenuItem className='flex gap-2 cursor-not-allowed hover:bg-gray-100'>
           <FiEdit3 className='size-4 text-disable' />
-          <span className='text-disable'>Rename</span>
+          <span className='text-disable '>Rename</span>
         </DropdownMenuItem>
-        <DropdownMenuItem className='flex gap-2'>
+        <DropdownMenuItem className='flex gap-2 cursor-not-allowed hover:bg-gray-100'>
           <BiImage className='size-4 text-disable' />
-          <span className='text-disable'>Change picture</span>
+          <span className='text-disable '>Change picture</span>
         </DropdownMenuItem>
-        <DropdownMenuItem className='flex gap-2'>
+        <DropdownMenuItem className='flex gap-2 cursor-not-allowed hover:bg-gray-100'>
           <AiOutlineTeam className='size-4 text-disable' />
-          <span className='text-disable'>Collaborate</span>
+          <span className='text-disable '>Collaborate</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem className='flex gap-2' onClick={handleClick}>
+        <DropdownMenuItem
+          className='flex gap-2 cursor-pointer hover:bg-gray-100'
+          onClick={handleClick}
+        >
           <FaRegTrashAlt className='size-4 text-red-600' />
           <span className='text-red-600'>Delete</span>
         </DropdownMenuItem>

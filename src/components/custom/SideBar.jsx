@@ -17,25 +17,29 @@ const sidebarLinks = [
     id: 'projects',
     label: 'Projects',
     to: '/projects',
-    icon: <RxDashboard size={42} className='p-2' />
+    icon: <RxDashboard size={42} className='p-2 ' />
   },
   {
     id: 'teams',
     label: 'Users & teams',
     to: '/teams',
-    icon: <RiTeamLine size={42} className='p-2' />
+    icon: (
+      <RiTeamLine size={42} className='p-2 cursor-not-allowed text-disable' />
+    )
   },
   {
     id: 'financial',
     label: 'Financial Database',
     to: '/financial',
-    icon: <RiBankLine size={42} className='p-2' />
+    icon: (
+      <RiBankLine size={42} className='p-2 cursor-not-allowed text-disable' />
+    )
   },
   {
     id: 'products',
     label: 'Product Database',
     to: '/products',
-    icon: <BsBoxes size={42} className='p-2' />
+    icon: <BsBoxes size={42} className='p-2 cursor-not-allowed text-disable' />
   }
 ]
 

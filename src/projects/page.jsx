@@ -1,11 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { columns } from './columns'
 import { DataTable } from './data-table'
+import { ThemeContext } from '@/context/globalContext'
 
 async function getData() {
   const res = await fetch(
     'https://run.mocky.io/v3/7264ef8c-21ba-4138-9c97-8610c4ee65d9'
   )
+
+  await new Promise((resolve) => setTimeout(resolve, 3000))
+
   const data = await res.json()
   return data
 }
@@ -21,15 +25,19 @@ const getFilteredData = (data = [], filter = 'All', searchValue = '') => {
 }
 
 export default function Page({ filter, searchValue }) {
-  const [originalData, setOriginalData] = useState([])
+  const { originalData, setOriginalData } = useContext(ThemeContext)
+  const [isLoading, setIsLoading] = useState(true)
 
   const [filteredData, setFilteredData] = useState([])
 
   useEffect(() => {
     async function fetchData() {
+      setIsLoading(true)
+
       const result = await getData()
       setOriginalData(result)
       setFilteredData(getFilteredData(result, filter, searchValue))
+      setIsLoading(false)
     }
 
     fetchData()
@@ -45,6 +53,7 @@ export default function Page({ filter, searchValue }) {
         columns={columns}
         data={filteredData}
         originalData={originalData}
+        isLoading={isLoading}
       />
     </div>
   )

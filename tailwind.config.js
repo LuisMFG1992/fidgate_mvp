@@ -18,7 +18,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        disable: '#e5e7eb',
+        disable: '#cacbcc',
         bodyTextColor: '#64748B',
         primaryColor: '#05445E',
         bgLight: '#F4F4F4',

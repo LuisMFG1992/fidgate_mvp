@@ -5,7 +5,7 @@ import { ThemeContext } from '@/context/globalContext'
 
 async function getData() {
   const res = await fetch(
-    'https://run.mocky.io/v3/7264ef8c-21ba-4138-9c97-8610c4ee65d9'
+    'https://run.mocky.io/v3/b05ce334-9a1a-4e98-a558-ab007c64a5ab'
   )
 
   await new Promise((resolve) => setTimeout(resolve, 3000))

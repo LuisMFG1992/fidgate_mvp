@@ -54,13 +54,16 @@ export function DataTable({ columns, data, originalData, isLoading }) {
         <p className='text-bodyTextColor'>
           Manages your projects and view their performance
         </p>
-        <Table>
+        <Table className='table-fixed'>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
                   <TableHead
                     key={header.id}
+                    // className={
+                    //   header.id !== 'name' ? 'text-center' : 'text-start'
+                    // }
                     className='text-center'
                     style={{
                       width:
@@ -214,70 +217,3 @@ export function DataTable({ columns, data, originalData, isLoading }) {
     </div>
   )
 }
-
-// {isLoading ? (
-//   <LoadingProjectsTable />
-// ) : originalData.length == 0 ? (
-//   <TableBody>
-//     <TableRow>
-//       <TableCell colSpan={columns.length} className='h-[480px]'>
-//         <div className='flex justify-center gap-8 items-center flex-col'>
-//           <p className='text-center  text-4xl font-semibold text-gray-400'>
-//             You have no projects at this time.
-//           </p>
-//           <p className='text-center  text-4xl font-semibold text-gray-400'>
-//             Begin by creating a new project using the button below.
-//           </p>
-//           <FaPlusCircle size={50} className='text-black' />
-//         </div>
-//       </TableCell>
-//     </TableRow>
-//   </TableBody>
-// ) : (
-//   <TableBody>
-//     {table.getRowModel().rows?.length ? (
-//       table.getRowModel().rows.map((row) => (
-//         <TableRow
-//           className='text-center h-[40px]'
-//           key={row.id}
-//           data-state={row.getIsSelected() && 'selected'}
-//         >
-//           {row.getVisibleCells().map((cell) => (
-//             <TableCell
-//               key={cell.id}
-//               className='text-center'
-//               style={{
-//                 width:
-//                   columns.find(
-//                     (col) =>
-//                       col.accessorKey ===
-//                       cell.column.columnDef.accessorKey
-//                   )?.size || 'auto',
-//                 minWidth:
-//                   columns.find(
-//                     (col) =>
-//                       col.accessorKey ===
-//                       cell.column.columnDef.accessorKey
-//                   )?.size || 'auto'
-//               }}
-//             >
-//               {flexRender(
-//                 cell.column.columnDef.cell,
-//                 cell.getContext()
-//               )}
-//             </TableCell>
-//           ))}
-//         </TableRow>
-//       ))
-//     ) : (
-//       <TableRow>
-//         <TableCell
-//           colSpan={columns.length}
-//           className='h-[480px] text-center text-4xl font-semibold text-gray-400'
-//         >
-//           No results found
-//         </TableCell>
-//       </TableRow>
-//     )}
-//   </TableBody>
-// )}

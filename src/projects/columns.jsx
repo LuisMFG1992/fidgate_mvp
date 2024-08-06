@@ -23,10 +23,16 @@ export const columns = [
   {
     accessorKey: 'name',
     header: 'Name',
-    size: 300,
+    size: 150,
     cell: ({ row }) => {
       const value = row.getValue('name')
-      return <div className='text-start'>{value}</div>
+      return (
+        // <div className=' bg-red-800 w-[350px]'>
+        <p className='text-start font-semibold max-w-[500px] line-clamp-1'>
+          {value}
+        </p>
+        // </div>
+      )
     }
   },
   {
@@ -64,11 +70,11 @@ export const columns = [
   {
     accessorKey: 'modifiedDate',
     header: 'Modified Date',
-    size: 150,
+    size: 100,
     cell: ({ row }) => {
       const date = new Date(row.getValue('modifiedDate'))
       const formatted = date.toLocaleDateString()
-      return <div className='text-center'>{formatted}</div>
+      return <div className='text-center font-semibold'>{formatted}</div>
     }
   },
   {

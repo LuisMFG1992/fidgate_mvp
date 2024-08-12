@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -72,9 +73,11 @@ export default function Login() {
                 value={formData.password}
               />
             </div>
-            <Button type='submit' className='w-full bg-primaryColor'>
-              Login
-            </Button>
+            <Link to='/projects'>
+              <Button type='submit' className='w-full bg-primaryColor'>
+                Login
+              </Button>
+            </Link>
           </div>
 
           <div className='mt-2 text-center text-sm'>

@@ -8,7 +8,7 @@ async function getData() {
     'https://run.mocky.io/v3/b05ce334-9a1a-4e98-a558-ab007c64a5ab'
   )
 
-  await new Promise((resolve) => setTimeout(resolve, 3000))
+  // await new Promise((resolve) => setTimeout(resolve, 3000))
 
   const data = await res.json()
   return data

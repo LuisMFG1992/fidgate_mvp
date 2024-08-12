@@ -61,9 +61,6 @@ export function DataTable({ columns, data, originalData, isLoading }) {
                 {headerGroup.headers.map((header) => (
                   <TableHead
                     key={header.id}
-                    // className={
-                    //   header.id !== 'name' ? 'text-center' : 'text-start'
-                    // }
                     className='text-center'
                     style={{
                       width:

@@ -3,12 +3,23 @@ import { createContext, useState } from 'react'
 export const ThemeContext = createContext(undefined)
 
 export const MyContextProvider = ({ children }) => {
-  const [showModal, setShowModal] = useState(false)
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [showOpenModal, setShowOpenModal] = useState(false)
   const [originalData, setOriginalData] = useState([])
+  const [selectedProject, setSelectedProject] = useState(null)
 
   return (
     <ThemeContext.Provider
-      value={{ showModal, setShowModal, originalData, setOriginalData }}
+      value={{
+        showDeleteModal,
+        setShowDeleteModal,
+        showOpenModal,
+        setShowOpenModal,
+        originalData,
+        setOriginalData,
+        selectedProject,
+        setSelectedProject
+      }}
     >
       {children}
     </ThemeContext.Provider>

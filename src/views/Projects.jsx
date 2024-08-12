@@ -6,12 +6,17 @@ import MenuBarApp from '@/components/custom/MenuBarApp'
 import SearchInput from '@/components/custom/SearchInput'
 import { Button } from '@/components/ui/button'
 import { FaPlus } from 'react-icons/fa6'
+import { useToggle } from '@/hooks/useToggle'
+import NewProjectModal from '@/components/custom/NewProjectModal'
 
 const Projects = () => {
   const [filter, setFilter] = useState('All')
   const [searchValue, setSearchValue] = useState('')
 
-  const { showModal } = useContext(ThemeContext)
+  const { state: showNewProjectModal, ToggleState: ToggleNewProjectModal } =
+    useToggle()
+
+  const { showDeleteModal } = useContext(ThemeContext)
 
   const handelFilter = (id) => {
     setFilter(id)
@@ -19,7 +24,10 @@ const Projects = () => {
 
   return (
     <div className='h-screen flex flex-col items-center p-4 gap-4'>
-      {showModal && <DeleteModal />}
+      {showDeleteModal && <DeleteModal />}
+      {showNewProjectModal && (
+        <NewProjectModal ToggleNewProjectModal={ToggleNewProjectModal} />
+      )}
       <div className='flex flex-col justify-center items-center gap-2'>
         <h2 className='text-4xl font-bold'>Welcome to FIDgate!</h2>
         <p className='text-bodyTextColor'>We are glad to have you here.</p>
@@ -37,7 +45,10 @@ const Projects = () => {
           <SearchInput setSearchValue={setSearchValue} />
         </div>
         <div className='flex flex-1 justify-end'>
-          <Button className='flex gap-2 bg-black hover:opacity-70 hover:bg-black'>
+          <Button
+            className='flex gap-2 bg-black hover:opacity-70 hover:bg-black'
+            onClick={ToggleNewProjectModal}
+          >
             <p className='h-full'>New project</p>
             <FaPlus className='size-4' />
           </Button>

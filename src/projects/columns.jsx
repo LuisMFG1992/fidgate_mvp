@@ -81,8 +81,9 @@ export const columns = [
     id: 'actions',
     header: 'Actions',
     size: 100,
-    cell: () => {
-      return <TableActions />
+    cell: ({ row }) => {
+      const project = row.original
+      return <TableActions project={project} />
     }
   }
 ]

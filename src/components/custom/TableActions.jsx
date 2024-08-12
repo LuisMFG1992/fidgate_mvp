@@ -16,11 +16,20 @@ import { FiEdit3 } from 'react-icons/fi'
 import { BiImage } from 'react-icons/bi'
 import { AiOutlineTeam } from 'react-icons/ai'
 
-const TableActions = () => {
-  const { setShowModal } = useContext(ThemeContext)
+const TableActions = ({ project }) => {
+  const { setShowDeleteModal, setSelectedProject, setShowOpenModal } =
+    useContext(ThemeContext)
 
-  const handleClick = () => {
-    setShowModal(true)
+  const handleDelete = (project) => {
+    setShowDeleteModal(true)
+    setSelectedProject(project)
+  }
+
+  const handleOpenProject = () => {
+    setShowOpenModal(true)
+    setSelectedProject(project)
+    // Navigate to the new project page and use the project data to fill the inputs
+    // If results already exists open directly in results
   }
 
   return (
@@ -32,7 +41,10 @@ const TableActions = () => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent align='end'>
-        <DropdownMenuItem className='flex gap-2 cursor-pointer hover:bg-gray-100'>
+        <DropdownMenuItem
+          className='flex gap-2 cursor-pointer hover:bg-gray-100'
+          onClick={handleOpenProject}
+        >
           <LuFolderOpen className='size-4' />
           <span>Open</span>
         </DropdownMenuItem>
@@ -51,7 +63,7 @@ const TableActions = () => {
         <DropdownMenuSeparator />
         <DropdownMenuItem
           className='flex gap-2 cursor-pointer hover:bg-gray-100'
-          onClick={handleClick}
+          onClick={() => handleDelete(project)}
         >
           <FaRegTrashAlt className='size-4 text-red-600' />
           <span className='text-red-600'>Delete</span>

@@ -6,7 +6,13 @@ import { PiWarningBold } from 'react-icons/pi'
 import { ThemeContext } from '@/context/globalContext'
 
 const DeleteModal = () => {
-  const { setShowModal } = useContext(ThemeContext)
+  const { setShowDeleteModal, setSelectedProject } = useContext(ThemeContext)
+
+  const handelDelete = () => {
+    // Delete project in DB
+    // Wait for new projects list
+    // Re-render projects table
+  }
 
   return (
     <Modal>
@@ -23,13 +29,19 @@ const DeleteModal = () => {
             project will be lost.
           </p>
           <div className='flex flex-col w-full gap-2'>
-            <Button className='bg-red-600 hover:bg-red-900'>
+            <Button
+              className='bg-red-600 hover:bg-red-900'
+              onClick={handelDelete}
+            >
               Delete project
             </Button>
 
             <Button
               className='bg-gray-200 hover:bg-gray-300 text-black'
-              onClick={() => setShowModal(false)}
+              onClick={() => {
+                setShowDeleteModal(false)
+                setSelectedProject(null)
+              }}
             >
               Cancel
             </Button>

@@ -1,0 +1,67 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "image": "https://cdn.pixabay.com/photo/2017/03/13/07/34/photovoltaic-2138992_1280.jpg",
+      "modifiedDate": "2024-08-04T21:58:51.452Z",
+      "status": "Completed",
+      "name": "M-DK-FT-Azimut-30"
+    },
+    {
+      "id": "2",
+      "image": "https://cdn.pixabay.com/photo/2017/09/12/13/21/photovoltaic-system-2742302_1280.jpg",
+      "modifiedDate": "2024-08-04T21:58:51.452Z",
+      "status": "In progress",
+      "name": "FT_EP_minus30"
+    },
+    {
+      "id": "3",
+      "image": "https://cdn.pixabay.com/photo/2023/09/10/11/16/solar-8244680_1280.jpg",
+      "modifiedDate": "2024-08-04T21:58:51.452Z",
+      "status": "Completed",
+      "name": "FT-EE_plus10%ASASDA-SD345-3DF-546-DF-34SDF-45-J-56F-DSDFHJ.DFGD-4"
+    },
+    {
+      "id": "4",
+      "image": "https://cdn.pixabay.com/photo/2017/08/21/20/29/solar-2666770_1280.jpg",
+      "modifiedDate": "2024-08-04T21:58:51.452Z",
+      "status": "Draft",
+      "name": "FT_60%Debt"
+    },
+    {
+      "id": "5",
+      "image": "",
+      "modifiedDate": "2024-08-04T21:58:51.452Z",
+      "status": "Completed",
+      "name": "FT_loan_tenor_10"
+    },
+    {
+      "id": "6",
+      "image": "",
+      "modifiedDate": "2024-08-04T21:58:51.452Z",
+      "status": "Completed",
+      "name": "DK-SAT1P"
+    },
+    {
+      "id": "7",
+      "image": "",
+      "modifiedDate": "2024-08-04T21:58:51.452Z",
+      "status": "Completed",
+      "name": "M-DK-FT3P.PFT_loan_tenor_10FT_loan_tenor_10"
+    },
+    {
+      "id": "8",
+      "image": "",
+      "modifiedDate": "2024-08-04T21:58:51.452Z",
+      "status": "In progress",
+      "name": "M-DK-FT3P.PFT_loan_tenor_10FT_loan_tenor_10"
+    },
+    {
+      "id": "57ABC",
+      "image": "",
+      "modifiedDate": "2024-08-13T20:26:20.642Z",
+      "status": "Draft",
+      "name": "This is my new project"
+    }
+  ]
+}

@@ -6,12 +6,33 @@ import { PiWarningBold } from 'react-icons/pi'
 import { ThemeContext } from '@/context/globalContext'
 
 const DeleteModal = () => {
-  const { setShowDeleteModal, setSelectedProject } = useContext(ThemeContext)
+  const {
+    setShowDeleteModal,
+    setSelectedProject,
+    selectedProject,
+    setOriginalData,
+    originalData
+  } = useContext(ThemeContext)
 
-  const handelDelete = () => {
-    // Delete project in DB
-    // Wait for new projects list
-    // Re-render projects table
+  const handelDelete = async () => {
+    const { id } = selectedProject
+
+    try {
+      const response = await fetch(`http://localhost:4000/projects/${id}`, {
+        method: 'DELETE'
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to delete the project')
+      }
+
+      console.log(`Project with id ${id} has been deleted successfully`)
+      setOriginalData(originalData.filter((project) => project.id !== id))
+
+      setShowDeleteModal(false)
+    } catch (error) {
+      console.error('Error:', error)
+    }
   }
 
   return (

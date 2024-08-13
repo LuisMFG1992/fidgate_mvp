@@ -4,9 +4,7 @@ import { DataTable } from './data-table'
 import { ThemeContext } from '@/context/globalContext'
 
 async function getData() {
-  const res = await fetch(
-    'https://run.mocky.io/v3/b05ce334-9a1a-4e98-a558-ab007c64a5ab'
-  )
+  const res = await fetch('http://localhost:4000/projects')
 
   // await new Promise((resolve) => setTimeout(resolve, 3000))
 

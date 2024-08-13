@@ -168,11 +168,7 @@ export function DataTable({ columns, data, originalData, isLoading }) {
                   table.previousPage()
                 }
               }}
-              className={`${
-                !table.getCanPreviousPage()
-                  ? 'opacity-50 cursor-not-allowed'
-                  : ''
-              }`}
+              className={`${!table.getCanPreviousPage() ? 'opacity-50' : ''}`}
               disabled={!table.getCanPreviousPage()}
             />
           </PaginationItem>
@@ -203,9 +199,7 @@ export function DataTable({ columns, data, originalData, isLoading }) {
                   table.nextPage()
                 }
               }}
-              className={`${
-                !table.getCanNextPage() ? 'opacity-50 cursor-not-allowed' : ''
-              }`}
+              className={`${!table.getCanNextPage() ? 'opacity-50' : ''}`}
               disabled={!table.getCanNextPage()}
             />
           </PaginationItem>

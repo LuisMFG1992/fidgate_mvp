@@ -73,7 +73,15 @@ export const columns = [
     size: 100,
     cell: ({ row }) => {
       const date = new Date(row.getValue('modifiedDate'))
-      const formatted = date.toLocaleDateString()
+      const DD = date.getDate()
+      const MM = date.getMonth() + 1
+      const YYYY = date.getFullYear()
+      const hours = date.getHours()
+      const minutes = date.getMinutes()
+      const seconds = date.getSeconds()
+
+      const formatted = `${DD}/${MM}/${YYYY} ${hours}:${minutes}:${seconds}`
+      // const formatted = date.toLocaleDateString()
       return <div className='text-center font-semibold'>{formatted}</div>
     }
   },

@@ -24,7 +24,7 @@ const NewProjectModal = ({ ToggleNewProjectModal }) => {
       image: '',
       modifiedDate: new Date(),
       status: 'Draft',
-      name: 'This is my new project'
+      name: newProjectName
     }
 
     try {
@@ -52,53 +52,55 @@ const NewProjectModal = ({ ToggleNewProjectModal }) => {
     setIsLoading(false)
   }
 
-  const NewProjectCard = () => {
-    return (
-      <CardApp
-        className={
-          'w-[600px] h-[170px] flex flex-col gap-4 justify-center items-center'
-        }
-      >
-        <h3 className='text-lg font-semibold text-start w-full'>
-          Enter the name of your new project:
-        </h3>
-        <Input onChange={handleInputChange} />
-        <div className='flex w-full gap-2'>
-          <Button
-            className='w-full bg-primaryColor text-white hover:brightness-125'
-            onClick={handleCreate}
-          >
-            Create
-          </Button>
-
-          <Button
-            className='bg-gray-200 w-full hover:bg-gray-300 text-black'
-            onClick={ToggleNewProjectModal}
-          >
-            Cancel
-          </Button>
-        </div>
-      </CardApp>
-    )
-  }
-
-  const Loading = () => {
-    return (
-      <Card
-        className={
-          'w-[600px] h-[170px] flex flex-col gap-4 justify-center items-center'
-        }
-      >
-        <Loader2 className='mr-2 h-16 w-16 animate-spin' />
-        Setting up your workspace...
-      </Card>
-    )
-  }
-
   return (
     <Modal>
-      {!isLoading && <NewProjectCard />}
-      {isLoading && <Loading />}
+      {!isLoading && (
+        <CardApp
+          className={
+            'w-[600px] h-[170px] flex flex-col gap-4 justify-center items-center'
+          }
+        >
+          <h3 className='text-lg font-semibold text-start w-full'>
+            Enter the name of your new project:
+          </h3>
+          <form
+            onSubmit={handleCreate}
+            className='w-full flex flex-col gap-4 justify-center items-center'
+          >
+            <Input
+              onChange={handleInputChange}
+              value={newProjectName}
+              required={true}
+            />
+            <div className='flex w-full gap-2'>
+              <Button
+                type='submit'
+                className='w-full bg-primaryColor text-white hover:brightness-125'
+                // onClick={handleCreate}
+              >
+                Create
+              </Button>
+
+              <Button
+                className='bg-gray-200 w-full hover:bg-gray-300 text-black'
+                onClick={ToggleNewProjectModal}
+              >
+                Cancel
+              </Button>
+            </div>
+          </form>
+        </CardApp>
+      )}
+      {isLoading && (
+        <Card
+          className={
+            'w-[600px] h-[170px] flex flex-col gap-4 justify-center items-center'
+          }
+        >
+          <Loader2 className='mr-2 h-16 w-16 animate-spin' />
+          Setting up your workspace...
+        </Card>
+      )}
     </Modal>
   )
 }

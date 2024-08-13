@@ -5,9 +5,6 @@ import { ThemeContext } from '@/context/globalContext'
 
 async function getData() {
   const res = await fetch('http://localhost:4000/projects')
-
-  // await new Promise((resolve) => setTimeout(resolve, 3000))
-
   const data = await res.json()
   return data
 }

@@ -81,7 +81,6 @@ export const columns = [
       const seconds = date.getSeconds()
 
       const formatted = `${DD}/${MM}/${YYYY} ${hours}:${minutes}:${seconds}`
-      // const formatted = date.toLocaleDateString()
       return <div className='text-center font-semibold'>{formatted}</div>
     }
   },

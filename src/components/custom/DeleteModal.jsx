@@ -11,7 +11,8 @@ const DeleteModal = () => {
     setSelectedProject,
     selectedProject,
     setOriginalData,
-    originalData
+    originalData,
+    setPagination
   } = useContext(ThemeContext)
 
   const handelDelete = async () => {
@@ -27,7 +28,10 @@ const DeleteModal = () => {
       }
 
       console.log(`Project with id ${id} has been deleted successfully`)
-      setOriginalData(originalData.filter((project) => project.id !== id))
+
+      const updatedData = originalData.filter((project) => project.id !== id)
+
+      setOriginalData(updatedData)
 
       setShowDeleteModal(false)
     } catch (error) {

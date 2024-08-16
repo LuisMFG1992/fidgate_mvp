@@ -27,11 +27,12 @@ import {
 
 import { FaPlusCircle } from 'react-icons/fa'
 import LoadingProjectsTable from '@/components/custom/LoadingProjectsTable'
+import { TABLE_PAGE_SIZE } from '@/constants'
 
 export function DataTable({ columns, data, originalData, isLoading }) {
   const [pagination, setPagination] = useState({
     pageIndex: 0,
-    pageSize: 6
+    pageSize: TABLE_PAGE_SIZE
   })
 
   const table = useReactTable({

@@ -1,9 +1,13 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useParams } from 'react-router-dom'
 import LogoSmall from '../../assets/LogoSmall.svg'
 import { RxDashboard } from 'react-icons/rx'
 import { RiTeamLine } from 'react-icons/ri'
 import { RiBankLine } from 'react-icons/ri'
 import { BsBoxes } from 'react-icons/bs'
+import { HiOutlineSupport } from 'react-icons/hi'
+import { PiGear } from 'react-icons/pi'
+import { FiUser } from 'react-icons/fi'
+import { MdLogout } from 'react-icons/md'
 
 import {
   Tooltip,
@@ -12,78 +16,58 @@ import {
   TooltipTrigger
 } from '@/components/ui/tooltip'
 
-const sidebarLinks = [
+import { SIDEBAR_ICONS_SIZE } from '@/constants'
+import { Separator } from '../ui/separator'
+import SideBarProject from './SideBarProject'
+import SideBarHome from './SideBarHome'
+
+const sidebarFixedButton = [
   {
-    id: 'projects',
-    label: 'Projects',
-    to: '/projects',
-    icon: <RxDashboard size={42} className='p-2' />
+    id: 'support',
+    label: 'Support',
+    icon: <HiOutlineSupport size={SIDEBAR_ICONS_SIZE} className='p-2' />
   },
   {
-    id: 'teams',
-    label: 'Users & teams',
-    to: '',
-    icon: (
-      <RiTeamLine size={42} className='p-2 cursor-not-allowed text-disable' />
-    )
+    id: 'settings',
+    label: 'Settings',
+    icon: <PiGear size={SIDEBAR_ICONS_SIZE} className='p-2' />
   },
   {
-    id: 'financial',
-    label: 'Financial Database',
-    to: '',
-    icon: (
-      <RiBankLine size={42} className='p-2 cursor-not-allowed text-disable' />
-    )
+    id: 'account',
+    label: 'Account',
+    icon: <FiUser size={SIDEBAR_ICONS_SIZE} className='p-2' />
   },
   {
-    id: 'products',
-    label: 'Product Database',
-    to: '',
-    icon: <BsBoxes size={42} className='p-2 cursor-not-allowed text-disable' />
+    id: 'logout',
+    label: 'Log out',
+    icon: <MdLogout size={SIDEBAR_ICONS_SIZE} className='p-2' />
   }
 ]
 
 const SideBar = () => {
+  const { id } = useParams()
   return (
-    <div className='h-full bg-white shadow-md w-[60px] py-4 px-2 flex flex-col gap-6'>
+    <div className='h-full bg-white shadow-md w-[70px] py-4 px-2 flex flex-col gap-6 '>
       <img src={LogoSmall} alt='logo' className='size-16' />
-      <div className='flex flex-col items-center gap-8 py-4 px-2'>
-        {sidebarLinks.map((link) =>
-          link.to ? (
-            <NavLink
-              key={link.id}
-              to={link.to}
-              className={({ isActive }) =>
-                isActive
-                  ? 'bg-sidebarSelected rounded-md flex justify-center items-center'
-                  : 'flex justify-center items-center'
-              }
-            >
+      <div className='flex flex-col gap-8 pt-4 h-full px-2'>
+        <div className='flex flex-col flex-1 gap-2'>
+          {id ? <SideBarProject /> : <SideBarHome />}
+        </div>
+        <Separator className='h-[2px]' />
+        <div className='flex flex-col items-center justify-end gap-2'>
+          {sidebarFixedButton.map((element) => (
+            <div key={element.id}>
               <TooltipProvider delayDuration={100}>
                 <Tooltip>
-                  <TooltipTrigger>{link.icon}</TooltipTrigger>
+                  <TooltipTrigger>{element.icon}</TooltipTrigger>
                   <TooltipContent>
-                    <p>{link.label}</p>
-                  </TooltipContent>
-                </Tooltip>
-              </TooltipProvider>
-            </NavLink>
-          ) : (
-            <div
-              key={link.id}
-              className='flex justify-center items-center cursor-not-allowed text-disable'
-            >
-              <TooltipProvider delayDuration={100}>
-                <Tooltip>
-                  <TooltipTrigger>{link.icon}</TooltipTrigger>
-                  <TooltipContent>
-                    <p>{link.label}</p>
+                    <p>{element.label}</p>
                   </TooltipContent>
                 </Tooltip>
               </TooltipProvider>
             </div>
-          )
-        )}
+          ))}
+        </div>
       </div>
     </div>
   )

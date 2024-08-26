@@ -27,7 +27,7 @@ const MenuBarApp = ({ filter, callback }) => {
       {options.map((option) => (
         <button
           key={option.id}
-          className={`rounded-lg min-w-[40px] p-1 font-medium px-2 ${
+          className={`rounded-lg min-w-[40px]  font-medium px-2 ${
             filter == option.label ? 'bg-black text-white' : ''
           }`}
           onClick={() => callback(option.label)}

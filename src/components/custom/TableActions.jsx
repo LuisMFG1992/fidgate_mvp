@@ -15,10 +15,13 @@ import { LuFolderOpen } from 'react-icons/lu'
 import { FiEdit3 } from 'react-icons/fi'
 import { BiImage } from 'react-icons/bi'
 import { AiOutlineTeam } from 'react-icons/ai'
+import { useNavigate } from 'react-router-dom'
 
 const TableActions = ({ project }) => {
   const { setShowDeleteModal, setSelectedProject, setShowOpenModal } =
     useContext(ThemeContext)
+
+  const navigate = useNavigate()
 
   const handleDelete = (project) => {
     setShowDeleteModal(true)
@@ -28,6 +31,8 @@ const TableActions = ({ project }) => {
   const handleOpenProject = () => {
     setShowOpenModal(true)
     setSelectedProject(project)
+    navigate(`./${project.id}`)
+
     // Navigate to the new project page and use the project data to fill the inputs
     // If results already exists open directly in results
   }

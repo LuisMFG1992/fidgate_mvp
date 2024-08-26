@@ -38,21 +38,15 @@ const Projects = () => {
       </div>
 
       <div className='flex w-full justify-between items-center'>
-        <div className='flex flex-1'>
-          <MenuBarApp filter={filter} callback={handelFilter} />
-        </div>
-        <div className='flex flex-1 justify-center'>
-          <SearchInput setSearchValue={setSearchValue} />
-        </div>
-        <div className='flex flex-1 justify-end'>
-          <Button
-            className='flex gap-2 bg-black hover:opacity-70 hover:bg-black'
-            onClick={ToggleNewProjectModal}
-          >
-            <p className='h-full'>New project</p>
-            <FaPlus className='size-4' />
-          </Button>
-        </div>
+        <MenuBarApp filter={filter} callback={handelFilter} />
+        <SearchInput setSearchValue={setSearchValue} />
+        <Button
+          className='flex gap-2 bg-black hover:opacity-70 hover:bg-black'
+          onClick={ToggleNewProjectModal}
+        >
+          <p className='h-full'>New project</p>
+          <FaPlus className='size-4' />
+        </Button>
       </div>
       <div className='flex flex-col w-full'>
         <Page filter={filter} searchValue={searchValue} />

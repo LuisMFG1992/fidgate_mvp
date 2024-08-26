@@ -34,13 +34,13 @@ const TableActions = ({ project }) => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger asChild className='text-slate-500 font-semibold'>
         <Button variant='ghost' className='h-8 w-8 p-0'>
           <span className='sr-only'>Open menu</span>
           <MoreHorizontal className='h-4 w-4' />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align='end'>
+      <DropdownMenuContent align='end' className='text-slate-500'>
         <DropdownMenuItem
           className='flex gap-2 cursor-pointer hover:bg-gray-100'
           onClick={handleOpenProject}

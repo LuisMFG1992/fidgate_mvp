@@ -3,23 +3,24 @@ import LogoInvertedColors from '../assets/LogoInvertedColors.png'
 import TableActions from '@/components/custom/TableActions'
 
 export const columns = [
-  {
-    accessorKey: 'image',
-    header: 'Image',
-    size: 80,
-    cell: ({ row }) => {
-      const value = row.getValue('image')
-      const placeholder = LogoInvertedColors
-      return (
-        <div className='w-full h-full flex justify-center items-center'>
-          <img
-            src={value ? value : placeholder}
-            className='size-10 bg-gray-400 rounded-lg'
-          ></img>
-        </div>
-      )
-    }
-  },
+  // {
+  //   accessorKey: 'image',
+  //   header: 'Image',
+  //   size: 80,
+  //   cell: ({ row }) => {
+  //     const value = row.getValue('image')
+  //     const placeholder = LogoInvertedColors
+  //     return (
+  //       <div className='w-full h-full flex justify-center items-center'>
+  //         <img
+  //           src={value ? value : placeholder}
+  //           className='size-10 bg-gray-400 rounded-lg'
+  //         ></img>
+  //       </div>
+  //     )
+  //   }
+  // },
+
   {
     accessorKey: 'name',
     header: 'Name',
@@ -27,12 +28,19 @@ export const columns = [
     cell: ({ row }) => {
       const value = row.getValue('name')
       return (
-        // <div className=' bg-red-800 w-[350px]'>
-        <p className='text-start font-semibold max-w-[500px] line-clamp-1'>
+        <p className='text-start text-slate-500 font-semibold max-w-[500px] line-clamp-1'>
           {value}
         </p>
-        // </div>
       )
+    }
+  },
+  {
+    accessorKey: 'country',
+    header: 'Country',
+    size: 100,
+    cell: ({ row }) => {
+      const value = row.getValue('country')
+      return <p className='text-slate-500 font-semibold'>{value}</p>
     }
   },
   {
@@ -44,14 +52,14 @@ export const columns = [
       const options = {
         Completed: (
           <div className='flex justify-center items-center'>
-            <div className='bg-green-700 py-1 px-2 min-w-24 rounded-lg text-white font-semibold'>
+            <div className='bg-black py-1 px-2 min-w-24 rounded-lg text-white font-semibold'>
               Completed
             </div>
           </div>
         ),
         'In progress': (
           <div className='flex justify-center items-center'>
-            <div className='bg-blue-800 py-1 px-2 min-w-24 rounded-lg text-white font-semibold'>
+            <div className='border border-slate-500 py-1 px-2 min-w-24 rounded-lg text-slate-500 font-semibold'>
               In progress
             </div>
           </div>
@@ -81,7 +89,11 @@ export const columns = [
       const seconds = date.getSeconds()
 
       const formatted = `${DD}/${MM}/${YYYY} ${hours}:${minutes}:${seconds}`
-      return <div className='text-center font-semibold'>{formatted}</div>
+      return (
+        <div className='text-center text-slate-500 font-semibold'>
+          {formatted}
+        </div>
+      )
     }
   },
   {
